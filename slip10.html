@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Operations</title>
+</head>
+<body style="background-color: lightblue;">
+    <h2>Perform Operations on Two Numbers</h2>
+    <form action="slip10.php" method="post">
+        Enter the first number: <input type="number" name="num1" required><br><br>
+        Enter the second number: <input type="number" name="num2" required><br><br>
+        Choose an operation:<br><br>
+        <input type="radio" name="operation" value="mod" required> Modulus (a % b)<br><br>
+        <input type="radio" name="operation" value="power" required> Power (a^b)<br><br>
+        <input type="radio" name="operation" value="sum" required> Sum of first n numbers (n = a)<br><br>
+        <input type="radio" name="operation" value="factorial" required> Factorial of second number (n!)<br><br>
+        <input type="submit" value="Calculate">
+        <input type="reset" value="Clear">
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Separator Operations</title>
+</head>
+<body>
+    <h2>String Operations with Separator</h2>
+    <form action="slip9.php" method="POST">
+        <label>Enter the string:*</label><br>
+        <input type='text' name='string1' required><br><br>
+
+        <label>Choose the separator:*</label><br>
+        <select name="separator" required>
+            <option value="">[select]</option>
+            <option value="#">#</option>
+            <option value="%">%</option>
+            <option value=",">,</option>
+            <option value="!">!</option>
+        </select><br><br>
+
+        <input type='radio' name="choice" value="1" required> Separate string<br>
+        <input type='radio' name="choice" value="2" required> Replace separator<br>
+
+        <select name="newsep">
+            <option value="">[select new separator]</option>
+            <option value="#">#</option>
+            <option value="%">%</option>
+            <option value=",">,</option>
+            <option value="!">!</option>
+        </select><br><br>
+
+        <input type='radio' name="choice" value="3" required> Get the last word of string<br>
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Cancel">
+    </form>
+</body>
+</html>

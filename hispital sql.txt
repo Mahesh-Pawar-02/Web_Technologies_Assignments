@@ -1,0 +1,224 @@
+Microsoft Windows [Version 10.0.22631.4317]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\xampp\mysql\bin>mysql -u root
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: *******
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| delete_duplicate_emails |
+| doctor                  |
+| hospital                |
+| information_schema      |
+| marvellous              |
+| mysql                   |
+| performance_schema      |
+| phpmyadmin              |
+| ppa50x                  |
+| reservation             |
+| shital                  |
+| test                    |
++-------------------------+
+12 rows in set (0.001 sec)
+
+MariaDB [(none)]> use doctor;
+Database changed
+MariaDB [doctor]> show tables;
+Empty set (0.003 sec)
+
+MariaDB [doctor]> use hospital;
+Database changed
+MariaDB [hospital]> show tables;
++--------------------+
+| Tables_in_hospital |
++--------------------+
+| hospital           |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [hospital]> create database slip26;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [hospital]> create table doctor(doc_no varchar(20) primary key,dname varchar(300),address varchar(300),city varchar(300),area varchar(200))
+    -> ;
+Query OK, 0 rows affected (0.044 sec)
+
+MariaDB [hospital]> create table hospital(hosp_no varhchar(30) primary key,hname varchar(300),hcity varchar(400));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(30) primary key,hname varchar(300),hcity varchar(400))' at line 1
+MariaDB [hospital]> create table hospital(hosp_no varchar(30) primary key,hname varchar(300),hcity varchar(400));
+ERROR 1050 (42S01): Table 'hospital' already exists
+MariaDB [hospital]> shoe tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'shoe tables' at line 1
+MariaDB [hospital]> use slip26;
+Database changed
+MariaDB [slip26]> create table hospital(hosp_no varchar(30) primary key,hname varchar(300),hcity varchar(400));
+Query OK, 0 rows affected (0.021 sec)
+
+MariaDB [slip26]> create table doctor(doc_no varchar(20) primary key,dname varchar(300),address varchar(300),city varchar(300),area varchar(200))
+    -> ;
+Query OK, 0 rows affected (0.027 sec)
+
+MariaDB [slip26]> show tables;
++------------------+
+| Tables_in_slip26 |
++------------------+
+| doctor           |
+| hospital         |
++------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [slip26]> create table dochos(doc_no varchar(20),hosp_no varhcar(30),foreign key(doc_no) references doctor(doc_n
+o), foreign key(hosp_no) references hospital(hosp_no));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(30),foreign key(doc_no) references doctor(doc_no), foreign key(hosp_no) refe...' at line 1
+MariaDB [slip26]> create table dochos(doc_no varchar(20),hosp_no varchar(30),foreign key(doc_no) references doctor(doc_no), foreign key(hosp_no) references hospital(hosp_no));
+Query OK, 0 rows affected (0.046 sec)
+
+MariaDB [slip26]> insert into doctor values(101,"Adarsh","Dehugaon","Pune","pcmc");
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [slip26]> insert into doctor values(102,"Mahesh","Nigadi","Nashik","pcmc");
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into doctor values(103,"Shital","Gulbarga","Mysure","cmcp");
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into doctor values(104,"Prakash","Sahyadri sc","Akola","cmd");
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [slip26]> insert into doctor values(105,"Seema","Horati","Benglore","karnataka");
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [slip26]> insert into hospital values(105,"Seema","Horati","Benglore","karnataka");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [slip26]> insert into hospital values(101,"Seema", Benglore");
+    "> Bye
+Ctrl-C -- exit!
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: *******
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use slip26;
+Database changed
+MariaDB [slip26]> insert into hospital values(101,"Seema", "Benglore");
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into hospital values(102,"Sneha", "Pune");
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [slip26]> insert into hospital values(103,"Shagun", "Mysure");
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [slip26]> insert into hospital values(104,"Swami", "Chennai");
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into hospital values(105,"Vaishnavi", "Hubali");
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> select * from hospital;
++---------+-----------+----------+
+| hosp_no | hname     | hcity    |
++---------+-----------+----------+
+| 101     | Seema     | Benglore |
+| 102     | Sneha     | Pune     |
+| 103     | Shagun    | Mysure   |
+| 104     | Swami     | Chennai  |
+| 105     | Vaishnavi | Hubali   |
++---------+-----------+----------+
+5 rows in set (0.004 sec)
+
+MariaDB [slip26]> select * from doctor;
++--------+---------+-------------+----------+-----------+
+| doc_no | dname   | address     | city     | area      |
++--------+---------+-------------+----------+-----------+
+| 101    | Adarsh  | Dehugaon    | Pune     | pcmc      |
+| 102    | Mahesh  | Nigadi      | Nashik   | pcmc      |
+| 103    | Shital  | Gulbarga    | Mysure   | cmcp      |
+| 104    | Prakash | Sahyadri sc | Akola    | cmd       |
+| 105    | Seema   | Horati      | Benglore | karnataka |
++--------+---------+-------------+----------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [slip26]> insert into dochos;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [slip26]> show tables;
++------------------+
+| Tables_in_slip26 |
++------------------+
+| dochos           |
+| doctor           |
+| hospital         |
++------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [slip26]> insert into dochos values(101,102)
+    -> ;
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [slip26]> insert into dochos values(101,103);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [slip26]> insert into dochos values(101,104);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [slip26]> insert into dochos values(102,101);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [slip26]> insert into dochos values(102,102);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [slip26]> insert into dochos values(103,102);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [slip26]> insert into dochos values(104,102);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into dochos values(104,104);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [slip26]> insert into dochos values(105,105);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into dochos values(105,104);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> insert into dochos values(103,104);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [slip26]> select * from dochos;
++--------+---------+
+| doc_no | hosp_no |
++--------+---------+
+| 101    | 102     |
+| 101    | 103     |
+| 101    | 104     |
+| 102    | 101     |
+| 102    | 102     |
+| 103    | 102     |
+| 104    | 102     |
+| 104    | 104     |
+| 105    | 105     |
+| 105    | 104     |
+| 103    | 104     |
++--------+---------+
+11 rows in set (0.001 sec)
+
+MariaDB [slip26]>

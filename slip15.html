@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+</head>
+<body>
+    <h2>String Operations Form</h2>
+    <form action="slip15.php" method="post">
+        <label>Enter a string:</label><br>
+        <textarea name="input_string" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="radio" name="operation" value="first5words"> Select first 5 words<br>
+        <input type="radio" name="operation" value="tolowercase"> Convert to lowercase and Title case<br>
+        <input type="radio" name="operation" value="padwithstars"> Pad with "*" from left and right<br>
+        <input type="radio" name="operation" value="removeleadingspaces"> Remove leading whitespaces<br>
+        <input type="radio" name="operation" value="reverse"> Reverse the string<br><br>
+
+        <input type="submit" value="Perform Operation">
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations</title>
+</head>
+<body>
+    <h1>Arithmetic Operations</h1>
+    <form action="calculator_result.php" method="post">
+        <label for="num1">Enter First Number:</label>
+        <input type="number" name="num1" id="num1" required><br><br>
+
+        <label for="num2">Enter Second Number:</label>
+        <input type="number" name="num2" id="num2" required><br><br>
+
+        <label>Select Operation:</label><br>
+        <input type="radio" name="operation" value="add" required> Add<br>
+        <input type="radio" name="operation" value="subtract"> Subtract<br>
+        <input type="radio" name="operation" value="multiply"> Multiply<br>
+        <input type="radio" name="operation" value="divide"> Divide<br><br>
+
+        <input type="submit" value="Calculate">
+        <input type="reset" value="Clear">
+    </form>
+</body>
+</html>
